@@ -1,0 +1,690 @@
+$visual-hight: 770px;
+$visual-hight-sp: 1200px;
+
+.wp-front-page {
+
+  // メインセクション
+  .section-visual {
+    height: $visual-hight-sp;
+    @include mq(md) {
+      height: $visual-hight;
+    }
+    background-image: url(../img/visual01.jpg);
+    background-position: center;
+    background-size: cover;
+    .container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @include mq(md) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    // 実績スライド
+    .slide-box {
+      position: relative;
+      width: 100%;
+      height: 55%;
+      @include mq(md) {
+        width: 60%;
+        height: 100%;
+      }
+      padding: 50px 10px;
+      background-color: rgba(0,0,0,0.7);
+      .arrow-box {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        .slide-arrow {
+          position: absolute;
+          top: 50%;
+          background-color: $color-main;
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          cursor: pointer;
+          &.prev-arrow {
+            left: 0px;
+            transform: translate(-40%, 0);
+          }
+          &.next-arrow {
+            right: 0px;
+            transform: translate(40%, 0);
+          }
+          & > i {
+            font-size: 25px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $color-white;
+          }
+        }
+      }
+      .box-title {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: $font-size-default;
+        color: $color-white;
+        @include mq(lg) {
+          font-size: $font-size-l;
+        }
+      }
+      .slider {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        .slick-list {
+          height: 100%;
+          .slick-track {
+            height: 100%;
+          }
+        }
+        .slider-item {
+          width: 100%;
+          height: 100%;
+          background-color: $color-white;
+          font-size: $font-size-ms;
+          padding: 10px 20px; 
+          @include mq(lg) {
+            font-size: $font-size-default;
+          }
+          &__wrapper {
+            height: calc(100% - 36px); //calc
+            overflow-y: hidden;
+          }
+          &__title {
+            & > span {
+              display: inline-block;
+              color: $color-white;
+              background-color: $color-main;
+              padding: 2px 10px;
+            }
+          }
+          &__text {
+            color: $color-text;
+            margin-bottom: 10px;
+            a {
+              color: $color-blue;
+              text-decoration: underline;
+            }
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+          &__link {
+            height: 25px; //calc
+            text-align: end;
+            margin-top: 10px; //calc
+            a {
+              position: relative;
+              display: inline-block;
+              height: 100%;
+              padding-left: 30px;
+              @include hover01;
+              span {
+                position: absolute;
+                top: 50%;
+                left: 0px;
+                transform: translateY(-50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 23px;
+                height: 23px;
+                background-color: $color-main;
+                border-radius: 50%;
+                margin-right: .3rem;
+                & > i {
+                  color: $color-white;
+                }
+              }
+            }
+          }
+        }
+        .slide-dots {
+          position: absolute;
+          bottom: -40px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
+          height: 38px;
+          text-align: center;
+          li {
+            display: inline-block;
+            margin: 5px 15px;
+            button {
+              position: relative;
+              font-size: 0;
+              display: inline-block;
+              width: 13px;
+              height: 13px;
+              border-radius: 50%;
+              background-color: $color-white;
+              transition: all .5s;
+            }
+            &.slick-active {
+              button {
+                background-color: $color-main;
+              }
+            }
+          }
+        }
+      } //.slider
+    } //.slide-box
+
+    // ピックアップ
+    .pickup-box {
+      height: 40%;
+      width: 100%;
+      @include mq(md) {
+        height: 100%;
+        width: 35%;
+      }
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      .wrapper {
+        width: 100%;
+        height: calc((100% / 4) - 20px);
+        margin: 5px 0;
+        &:first-child {
+          margin: 0 0 5px;
+        }
+        &:last-child {
+          margin: 5px 0 0;
+        }
+      }
+      &__box {
+        width: 100%;
+        height: 100%;
+        background-color: $color-white;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        border-radius: 5px;
+        a {
+          padding: 15px 30px 15px 15px; //
+          display: block;
+          width: 100%;
+          height: 100%;
+          @include hover01;
+        }
+        img {
+          display: none;
+        }
+        p {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          font-size: $font-size-ms;
+          font-weight: bold;
+          @include mq(lg) {
+            font-size: $font-size-default;
+          }
+          span { 
+            display: inline-block;
+          }
+        }
+        .angle-box {
+          position: absolute;
+          top: 50%;
+          right: 10px;
+          transform: translateY(-50%);
+          display: block;
+          height: 90%;
+          width: 15px;
+          background-color: $color-main;
+          i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $color-white;
+          }
+        }
+        &.thumbnail {
+          padding: 15px 30px 15px 15px;
+          img {
+            display: block; 
+            width: calc(30% - 10px);
+            height: 100%;
+            object-fit: contain;
+            margin-right: 10px;
+          }
+          p {
+            width: 70%;
+          }
+          &.nolink {
+            padding: 15px;
+          }
+        }
+        &.nolink {
+          padding: 15px;
+          .angle-box {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+
+  // 新着情報
+  .section-news {
+    .container {
+    }
+    .news-box {
+      position: relative;
+      width: 100%;
+      padding-top: 70px;
+      // タブ
+      &__tabs {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
+        &__tab {
+          height: 70px;
+          width: calc((100% / 3) - 9px);
+          @include mq(md) {
+            width: calc((100% / 3) - 15px);
+          }
+          border-top: 2px solid $color-light-gray;
+          border-left: 2px solid $color-light-gray;
+          border-right: 2px solid $color-light-gray;
+          border-radius: 5px 5px 0 0;
+          text-align: center;
+          line-height: 70px;
+          position: relative;
+          color: $color-main;
+          font-weight: bold;
+          font-size: $font-size-ml;
+          transition: all .3s;
+          cursor: pointer;
+          i {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: calc(20%);
+            transform: translate(-50%, -50%);
+            font-size: $font-size-xl;
+            transition: transform .3s;
+          }
+          @include mq(sm) {
+            i {
+              display: inline-block;
+            }
+          }
+          @include mq(md) {
+            font-size: $font-size-default;
+            i {
+              left: calc(30%);
+              display: inline-block;
+            }
+          }
+          &.active {
+            border: none;
+            background-color: $color-main;
+            color: $color-white;
+            cursor: auto;
+            i {
+              transform: translate(-50%, -50%) rotate(90deg);
+            }
+          }
+        }
+      }
+      .wrapper {
+        width: 100%;
+        display: none;
+        border: 2px solid $color-light-gray;
+        padding: 20px 10px;
+        @include mq(sm) {
+          padding: 20px;
+        }
+        @include mq(md) {
+          padding: 40px;
+        }
+        &.active {
+          display: block;
+        }
+      }
+      &__contents {
+        width: 100%;
+        margin-bottom: 30px;
+        ul {
+          width: 100%;
+        }
+        &__content {
+          width: 100%;
+          & > a {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            padding: 10px 0; //calc
+            position: relative;
+            @include hover01;
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 100%;
+              height: 2px;
+              background-color: $color-light-gray;
+            }
+          }
+          &__info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 120px; //calc
+            height: 100%;
+            .time {
+              display: inline-block;
+              color: $color-text;
+              margin-bottom: 5px;
+              font-size: $font-size-ms;
+            }
+            .category {
+              display: inline-block;
+              width: 70px;
+              height: 25px;
+              line-height: 25px;
+              text-align: center;
+              font-size: $font-size-ms;
+              color: $color-white;
+              &.news {
+                background-color: $color-orange;
+              }
+              &.topics {
+                background-color: $color-green;
+              }
+            }
+            @include mq(sm) {
+              width: 140px; //calc
+              .time {
+                font-size: $font-size-default;
+              }
+            }
+          }
+          &__text {
+            width: calc(100% - 120px);
+            @include mq(sm) {
+              width: calc(100% - 140px);
+            }
+            height: 100%;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2; /* 制限したい行数が3の場合 */
+            // display: flex;
+            // align-items: center;
+            color: $color-text;
+            text-decoration: underline;
+            font-size: $font-size-default;
+            overflow: hidden;
+          }
+        }
+      }
+      &__button {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        a {
+          display: inline-block;
+          font-weight: bold;
+          &.all-button {
+            padding: 10px 35px 10px 20px;
+            color: $color-main;
+            border: 3px solid $color-main;
+            position: relative;
+            i {
+              position: absolute;
+              right: 5px;
+              top: 50%;
+              transform: translateY(-50%);
+              color: $color-main;
+              font-size: $font-size-l;
+            }
+            @include hover01;
+          }
+          &.rss-button {
+            padding: 3px 6px;
+            background-color: $color-rss;
+            color: $color-white;
+            font-size: $font-size-default;
+            margin-left: 20px;
+            i {
+              display: inline-block;
+              margin-right: .4rem;
+            }
+            @include hover01;
+          }
+        }
+      }
+    }
+  }
+
+  // アピールスペース１
+  .section-appeal01 {
+    padding-top: 0;
+    .container {
+      display: block;
+      @include mq(sm) {
+        display: flex;
+      }
+    }
+    &__left-box {
+      width: 100%;
+      @include mq(sm) {
+        width: calc(50% - 20px);
+      }
+      &::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .wrapper {
+        height: 80px;
+        float: left;
+        width: 100%;
+        margin-bottom: 20px;
+        &:nth-last-child(1) {
+          margin-bottom: 0;
+        }
+        @include mq(lg) {
+          width: calc((100% - 20px) / 2);
+          &:nth-child(even) {
+            margin-left: 20px;
+          }
+          &:nth-last-child(2) {
+            margin-bottom: 0;
+          }
+        }     
+      }
+      .appeal-box {
+        width: 100%;
+        height: 100%;
+        background-color: $color-white;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        border-radius: 5px;
+        border: 2px solid $color-light-gray;
+        a {
+          padding: 15px 30px 15px 15px; //
+          display: block;
+          width: 100%;
+          height: 100%;
+          @include hover01;
+        }
+        img {
+          display: none;
+        }
+        p {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          font-size: $font-size-l;
+          @include mq(lg) {
+            font-size: $font-size-l;
+          }
+          span { 
+            display: inline-block;
+          }
+        }
+        .angle-box {
+          position: absolute;
+          top: 50%;
+          right: 10px;
+          transform: translateY(-50%);
+          display: block;
+          height: 90%;
+          width: 15px;
+          background-color: $color-main;
+          i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $color-white;
+          }
+        }
+        // &.thumbnail {
+        //   padding: 15px 30px 15px 15px;
+        //   img {
+        //     display: block; 
+        //     width: calc(30% - 10px);
+        //     height: 100%;
+        //     object-fit: contain;
+        //     margin-right: 10px;
+        //   }
+        //   p {
+        //     width: 70%;
+        //   }
+        //   &.nolink {
+        //     padding: 15px;
+        //   }
+        // }
+        // &.nolink {
+        //   padding: 15px;
+        //   .angle-box {
+        //     display: none;
+        //   }
+        // }
+      }
+    }
+
+    &__right-box {
+      width: 100%;
+      margin-top: 40px;
+      margin-left: 0;
+      @include mq(sm) {
+        margin-top: 0;
+        margin-left: 20px;
+        width: calc(50% - 20px)
+      }
+    }
+  }
+
+  .section-group {
+    .container {
+      &::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    }
+    .group {
+      float: left;
+      height: 60px;
+      background-color: $color-group;
+      padding: 10px;
+      margin-right: 0;
+      margin-bottom: 20px;
+      width: 100%;
+      @include mq(md) {
+        width: calc((100% - 20px) / 2);
+        margin-right: 20px;
+        &:nth-child(even) {
+          margin-right: 0;
+        }
+      }
+      @include mq(xl) {
+        width: calc(33.33333333% - (20px * 2 / 3) - 1px);
+        margin-right: 20px;
+        &:nth-child(even) {
+          margin-right: 20px;
+        }
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+      & > a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        @include hover01;
+        p {
+          width: 100%;
+          height: 100%;
+          color: $color-white;
+          font-weight: bold;
+          font-size: $font-size-l;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          z-index: 3;
+        }
+        & > img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          color: $color-white;
+          &.logo {
+            object-fit: contain;
+          }
+          &.bk {
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+          }
+        }
+      }
+      &.eco {
+        & > a {
+          & > img {
+            &.bk {
+              object-position: 50% 60%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

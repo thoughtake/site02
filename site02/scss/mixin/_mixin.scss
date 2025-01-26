@@ -1,0 +1,15 @@
+@mixin mq($breakpoint: md) {
+
+  @media #{map-get($breakpoints, $breakpoint)} {
+
+    @content;
+  }
+}
+
+
+@mixin hover01 {
+  transition: opacity .3s;
+  &:hover {
+    opacity: 0.7;
+  }
+}

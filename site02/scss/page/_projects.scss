@@ -1,0 +1,269 @@
+.wp-page.page-projects {
+  .content-wrapper {
+    .content-search {
+      background-color: $color-quite-light-gray;
+      border: 2px solid $color-light-gray;
+      border-radius: 5px;
+      padding: 0 20px;
+      &__title {
+        font-size: $font-size-l;
+        font-weight: bold;
+        padding: 20px 0 0;
+        text-align: center;
+      }
+      &__box {
+        padding: 10px 0 20px;
+        .box-title {
+          position: relative;
+          margin-bottom: 20px;
+          .wrapper {
+            position: relative;
+            display: inline-block;
+            background-color: $color-quite-light-gray;
+            z-index: 2;
+            i.fa-solid {
+              color: $color-main;
+              font-size: $font-size-l;
+              padding-left: 3px;
+              padding-right: 5px;
+            }
+            & > span {
+              padding-right: 20px;
+              font-size: $font-size-ml;
+            }
+          }
+          &::after {
+            display: block;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 2px;
+            width: 100%;
+            background-color: $color-gray;
+            z-index: 1;
+          }
+        }
+        .search-words {
+          display: flex;
+          justify-content: left;
+          flex-wrap: wrap;
+          &__word {
+            & > label {
+              display: block;
+              background-color: $color-white;
+              padding: 2px 10px;
+              font-size: $font-size-default;
+              border-radius: 5px;
+              border: 2px solid $color-gray;
+              margin-bottom: 10px;
+              margin-left: 0;
+              margin-right: 10px;
+              cursor: pointer;
+              @include hover01;
+              &:has(input:checked) {
+                background-color: $color-text;
+                color: $color-white;
+                border: 2px solid $color-text;
+                &:hover {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+        &.keyword {
+          .input-box {
+            width: 100%;
+            position: relative;
+            input[type="text"] {
+              background-color: $color-white;
+              border: 2px solid $color-light-gray;
+              border-radius: 5px;
+              padding-right: 33px;
+            }
+            #clear-button {
+              position: absolute;
+              top: 50%;
+              right: 10px;
+              transform: translateY(-50%);
+              color: $color-gray;
+              cursor: pointer;
+              font-size: 20px;
+            }
+          }
+          .pickup-box {
+            margin-top: 15px;
+            display: flex;
+            &__title {
+              padding: 3px 0px;
+              width: 118px;
+            }
+            &__words {
+              width: calc(100% - 130px);
+              display: flex;
+              flex-wrap: wrap;
+              &__word {
+                display: inline-block;
+                margin: 0px 6px;
+                padding: 3px 0;
+                text-decoration: underline;
+                cursor: pointer;
+                @include hover01;
+              }
+            }
+          }
+        }
+        &.button {
+          margin-top: 10px;
+          .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .search-button {
+              display: block;
+              width: 100%;
+              margin-bottom: 15px;
+              border-radius: 5px;
+              height: auto;
+              padding: 15px 0;
+              cursor: pointer;
+              @include hover01;
+              @include mq(sm) {
+                width: calc(100% / 2 - 10px);
+                margin-bottom: 0;
+              }
+              &.clear {
+                background-color: $color-gray;
+                color: $color-white;
+              }
+              &.search {
+                background-color: $color-main;
+                color: $color-white;
+              }
+            }
+          }
+        }
+      }
+    } //.content-search
+
+    .content-result {
+      margin-top: 50px;
+      font-size: $font-size-l;
+      text-align: center;
+      .no-result {
+        margin-top: 150px;
+      }
+    }
+
+
+
+    .content-projects {
+      &__links {
+        margin-top: 50px;
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          li {
+            a {
+              color: $color-blue;
+              text-decoration: underline;
+            }
+            span {
+              display: inline-block;
+              color: $color-gray;
+              font-weight: bold;
+              padding: 0 10px;
+            }
+          }
+        }
+      }
+      &__wrapper {
+        width: 100%;
+      }
+      &__title {
+        margin-top: 50px;
+        margin-bottom: 30px;
+      }
+      &__table-wrapper {
+        width: 100%;
+        height: auto;
+        min-height: 150px;
+        overflow-x: auto;
+        @include mq(sm) {
+          overflow-x: hidden;
+        }
+        &.is-scrollable {
+          .scroll-hint-icon {
+            top: 50px;
+          }
+        }
+      }
+      &__table {
+        border-collapse: collapse;
+        border: 2px solid $color-light-gray;
+        font-size: $font-size-ms;
+        // width: 100%;
+        width: 200%;
+        @include mq(sm) {
+          font-size: $font-size-default;
+          width: 100%;
+        }
+        th, td {
+          border: 2px solid $color-light-gray;
+          padding: 5px;
+          @include mq(sm) {
+            padding: 10px;
+          }
+        }
+        th {
+          background-color: $color-blue;
+          color: $color-white;
+          font-weight: normal;
+          &.th-1 {
+            width: 32%;
+          }
+          &.th-2 {
+            width: 15%;
+          }
+          &.th-3 {
+            width: 10%;
+          }
+          &.th-4 {
+            width: 43%;
+          }
+          @include mq(sm) {
+            &.th-1 {
+              width: 32%;
+            }
+            &.th-2 {
+              width: 15%;
+            }
+            &.th-3 {
+              width: 10%;
+            }
+            &.th-4 {
+              width: 43%;
+            }
+          }
+        }
+        td {
+          &.td-2 {
+            text-align: center;
+          }
+          &.td-3 {
+            text-align: center;
+          }
+          &.td-4 {
+            a {
+              text-decoration: underline;
+              color: $color-link;
+              @include hover01;
+            }
+          }
+        }
+      }
+    }
+  }
+}

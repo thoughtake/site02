@@ -1,0 +1,12 @@
+.editor-styles-wrapper {
+  .editor-visual-editor__post-title-wrapper {
+    background-color: #E10255;
+  }
+  h1{background-color:#E10255;min-height:90px;display:flex;align-items:center;padding:10px 0;font-size:1.7rem;font-weight:500;color:#ffffff} 
+  h2{margin:80px 0 15px;padding:7px 0;font-size:1.6rem;position:relative;color:#333333} h2::before{content:"";position:absolute;bottom:0;left:0;display:block;height:6px;width:100px;background-color:#E10255;z-index:2} 
+  h2::after{content:"";position:absolute;bottom:0;left:0;display:block;height:6px;width:100%;background-color:#929292;z-index:1} 
+  h3{margin:30px 0 15px;padding-left:20px;font-size:1.4rem;color:#333333;position:relative} 
+  h3::before{content:"";position:absolute;top:50%;left:0;transform:translateY(-50%);width:6px;height:100%;background-color:#E10255} p{color:#333333;font-size:1rem} p a{color:#1A0DAB}
+
+}
+

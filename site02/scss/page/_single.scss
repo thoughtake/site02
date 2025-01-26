@@ -1,0 +1,58 @@
+.wp-single {
+  .content-wrapper {
+    .container {
+      #ez-toc-container {
+        background-color: $color-quite-light-gray;
+        border: 2px solid $color-light-gray;
+        border-radius: 5px;
+        box-shadow: none;
+        width: 100%;
+        margin: 40px 0 20px;
+        padding: 10px 20px;
+        nav {
+          ul {
+            li {
+              margin-bottom: .3rem;
+              &:last-child {
+                margin-bottom: 0;
+              }
+              a {
+                font-size: $font-size-default;
+                color: $color-text;
+                font-weight: 500;
+                padding-left: 30px;
+                position: relative;
+                &::before {
+                  content: "";
+                  display: block;
+                  width: $font-size-l;
+                  height: $font-size-l;
+                  position: absolute;
+                  top: 50%;
+                  left: 0;
+                  transform: translateY(-50%);
+                  background-image: url("../img/angle-right-solid.svg");
+                  color: $color-main;
+                  filter: invert(20%) sepia(100%) saturate(7477%) hue-rotate(332deg) brightness(88%) contrast(100%);
+                }
+                @include hover01;
+                &:hover {
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      & > p {
+        color: $color-text;
+        font-size: $font-size-default;
+        a {
+          color: $color-link;
+          @include hover01;
+        }
+      }
+
+    }
+  }
+}

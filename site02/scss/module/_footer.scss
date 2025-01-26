@@ -1,0 +1,160 @@
+$footer-top-height: 90px;
+$footer-top-height-sp: 70px;
+$footer-bottom-height: 60px;
+
+#footer {
+  width: 100%;
+  padding: 10px;
+  .footer__top {
+    display: flex;
+    justify-content: center;
+    @include mq(md) {
+      height: $footer-top-height;
+      justify-content: space-between;
+    }
+    .footer__logo {
+      height: 100%;
+      display: none; 
+      @include mq(lg) {
+        display: block;
+      }
+      a {
+        display: block;
+        height: 100%;
+        padding: 20px;
+      }
+      img {
+        display: block;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    & > .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      width: 100%;
+      @include mq(md) {
+        width: auto;
+      }
+      & > .wrapper {
+        width: 100%;
+        @include mq(md) {
+          width: auto;
+        }
+        & > .wrapper {
+          display: flex;
+          justify-content: start;
+          width: 100%;
+          @include mq(md) {
+            width: auto;
+          }
+        }
+      }
+    }
+    .footer__info {
+      margin-bottom: 10px;
+      display: none; 
+      @include mq(xl) {
+        display: block;
+      }
+      p {
+        span {
+          display: inline-block;
+          margin-right: 1rem;
+        }
+      }
+    }
+    .footer__nav {
+      margin-right: 0;
+      width: 100%;
+      @include mq(md) {
+        margin-right: 40px;
+        width: auto;
+      }
+      & > ul {
+        display: block;
+        width: 100%;
+        &::after {
+          content: "";
+          clear: both;
+          display: block;
+        } 
+        @include mq(sm) {
+          display: flex;
+        }
+        @include mq(md) {
+          width: auto;
+        }
+        li {
+          border-left: none;
+          border-right: 2px solid $color-light-gray;
+          width: 50%;
+          float: left;
+          margin-bottom: 20px;
+          &:last-child {
+            border-right: none;
+          }
+          @include mq(sm) {
+            width: 25%;
+            float: none;
+            margin-bottom: 0;
+          }
+          @include mq(md) {
+            &:first-child {
+              border-left: 2px solid $color-light-gray;
+            }
+            width: auto;
+          }
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: $footer-top-height-sp;
+            padding: 0;
+            @include mq(sm) {
+            }
+            @include mq(md) {
+              display: inline-block;
+              padding: 0 20px;
+              height: auto;
+            }
+            @include hover01;
+          }
+        }
+      }
+    }
+    .footer__num {
+      display: none; 
+      @include mq(xl) {
+        display: block;
+      }
+    }
+    .footer__privacy {
+      height: 100%;
+      display: none;
+      @include mq(md) {
+        display: block;
+      }
+      img {
+        display: block;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  .footer__bottom {
+    height: $footer-bottom-height;
+    .copyright {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: $font-size-ms;
+      @include mq(sm) {
+        font-size: $font-size-default;
+      }
+    }
+  }
+}
